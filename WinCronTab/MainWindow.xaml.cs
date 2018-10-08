@@ -23,5 +23,25 @@ namespace WinCronTab
         {
             InitializeComponent();
         }
+
+        private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                this.DragMove();
+            }
+            catch
+            {
+
+            }
+        }
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+        private void BtnMin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = System.Windows.WindowState.Minimized;
+        }
     }
 }
