@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -22,6 +23,8 @@ namespace WinCronTab
         public MainWindow()
         {
             InitializeComponent();
+            DoubleAnimation da = new DoubleAnimation(0, 1, new Duration(TimeSpan.FromSeconds(0.4)));
+            WinCronTab.BeginAnimation(UIElement.OpacityProperty, da);
         }
 
         private void Canvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -35,13 +38,23 @@ namespace WinCronTab
 
             }
         }
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            Environment.Exit(0);
-        }
         private void BtnMin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void BtnClose_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            System.Timers.Timer time = new System.Timers.Timer(400);
+            time.Elapsed += new System.Timers.ElapsedEventHandler(MainClose);
+            time.AutoReset = false;
+            time.Enabled = true;
+            DoubleAnimation da = new DoubleAnimation(1, 0, new Duration(TimeSpan.FromSeconds(0.4)));
+            WinCronTab.BeginAnimation(UIElement.OpacityProperty, da);
+        }
+        private void MainClose(object source, System.Timers.ElapsedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
