@@ -12,7 +12,9 @@
         <Canvas MouseLeftButtonDown="Canvas_MouseLeftButtonDown" Background="Transparent">
             <Image x:Name="BtnClose" Height="20" Canvas.Left="447" Canvas.Top="10" Width="20" Source="img/Close.png" Cursor="Hand" MouseLeftButtonDown="BtnClose_MouseLeftButtonDown"/>
             <Image x:Name="BtnMin" Height="20" Canvas.Left="422" Canvas.Top="10" Width="20" Source="img/Min.png" Cursor="Hand" MouseLeftButtonDown="BtnMin_MouseLeftButtonDown"/>
-
+            <Label Content="WinCronTab" Canvas.Left="194" Canvas.Top="12" FontSize="14"/>
+            <!--<Line X1="50" Y1="20" X2="400" Y2="20" Stroke="Red" StrokeThickness="10"></Line>-->
+            <Line X1="0" Y1="0" X2="475" Y2="0" Stroke="Gray" Canvas.Top="40"></Line>
         </Canvas>
     </Grid>
 </Window>
