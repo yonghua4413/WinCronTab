@@ -38,9 +38,11 @@ namespace WinCronTab
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-            if (System.DateTime.Now.ToString("t") == "12:20")
+            string nowtime = System.DateTime.Now.ToString("t");
+            if (nowtime == "08:56" || nowtime == "12:20" || nowtime == "18:40")
             {
                 //指定时间执行
+                //Timedia();
             }
         }
         private void InitialTray()
